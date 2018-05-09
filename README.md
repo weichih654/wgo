@@ -1,3 +1,5 @@
+A alias wrapper, it's easy to make linux alias and move between folders.
+
 # Installation
 
     source wgo.sh
@@ -19,3 +21,7 @@
         $ foobar2
         $ pwd
         $ /foo/bar/2
+
+* list tags
+
+        $ wgo
