@@ -1,5 +1,9 @@
 A alias wrapper, it's easy to make linux alias and move between folders.
 
+# Online Installation
+
+    $ wget http://wliu.dynu.com/APPS/wgo/wgo.sh && chmod +x wgo.sh && source wgo.sh && rm wgo.sh
+
 # Installation
 
     source wgo.sh
