@@ -8,6 +8,10 @@ A alias wrapper, it's easy to make linux alias and move between folders.
 
     source wgo.sh
 
+# Clean wgo
+
+    rm ~/.wgolist; rm ~/.wgosrc; sed -i '/.*wgosrc.*/d' ~/.profile; sed -i '/.*wgolist.*/d' ~/.profile
+
 # Usage:
 
 * set tag
