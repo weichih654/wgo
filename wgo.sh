@@ -6,16 +6,18 @@ if [ $called == $0 ]; then
 fi 
 
 WGOSRC="${HOME}/.wgosrc"
+WGOLIST="${HOME}/.wgolist"
 if [ -f ${WGOSRC} ]; then
     echo "Already installed"
     return
 fi
-BASHRCFILE=~/.bashrc
-echo "if [ -z \"\$1\" ]; then alias; else alias \$1=\"cd \`pwd\`\"; fi" > ${WGOSRC}
-grep "wgo" ${BASHRCFILE}
+BASHRCFILE=~/.profile
+echo "if [ -z \"\$1\" ]; then alias; else alias \$1=\"cd \`pwd\`\"; echo "alias \$1=\\\"cd \`pwd\`\\\"" >> ${WGOLIST}; fi" > ${WGOSRC}
+grep "wgo" ${BASHRCFILE} | grep -v grep
 if [ "$?" != "0" ];then
     alias wgo="source ${WGOSRC}" > /dev/null
     echo "alias wgo=\"source ${WGOSRC}\"" >> ${BASHRCFILE}
+    echo "source ${WGOLIST}" >> ${BASHRCFILE}
 fi
 
 echo "Install Success"
