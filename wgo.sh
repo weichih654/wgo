@@ -12,9 +12,10 @@ if [ -f ${WGOSRC} ]; then
     return
 fi
 BASHRCFILE=~/.profile
-echo "if [ -z \"\$1\" ]; then alias; else alias \$1=\"cd \`pwd\`\"; echo "alias \$1=\\\"cd \`pwd\`\\\"" >> ${WGOLIST}; fi" > ${WGOSRC}
+echo "if [ -z \"\$1\" ]; then cat ${WGOLIST}  | sed 's/alias //g' ; else alias \$1=\"cd \`pwd\`\"; echo "alias \$1=\\\"cd \`pwd\`\\\"" >> ${WGOLIST}; fi" > ${WGOSRC}
 grep "wgo" ${BASHRCFILE} | grep -v grep
 if [ "$?" != "0" ];then
+    touch ${WGOLIST}
     alias wgo="source ${WGOSRC}" > /dev/null
     echo "alias wgo=\"source ${WGOSRC}\"" >> ${BASHRCFILE}
     echo "source ${WGOLIST}" >> ${BASHRCFILE}
