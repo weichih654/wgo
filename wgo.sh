@@ -22,5 +22,6 @@ if [ "$?" != "0" ];then
     echo "alias wgo=\"source ${WGOSRC}\"" >> ${PROFILE_FILE}
     echo "source ${WGOLIST}" >> ${PROFILE_FILE}
 fi
+source ${WGOLIST}
 
 echo "Install Success"
