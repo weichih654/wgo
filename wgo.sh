@@ -14,7 +14,7 @@ if [ "`basename $SHELL`" = "zsh" ]; then
     PROFILE_FILE=~/.zshrc
 fi
 
-echo "if [ -z \"\$1\" ]; then cat ${WGOLIST}  | sed 's/alias //g' | sed 's/cd //g'; else alias \$1=\"cd \`pwd\`\"; echo "alias \$1=\\\"cd \`pwd\`\\\"" >> ${WGOLIST}; fi" > ${WGOSRC}
+echo "if [ -z \"\$1\" ]; then cat ${WGOLIST}  | sed 's/alias //g' | sed 's/cd //g'; else alias \$1=\"cd \\\"\`pwd\`\\\"\"; echo "alias \$1=\\\"cd \\\\\\\"\`pwd\`\\\\\\\"\\\"" >> ${WGOLIST}; fi" > ${WGOSRC}
 grep "wgo" ${PROFILE_FILE} | grep -v grep
 if [ "$?" != "0" ];then
     touch ${WGOLIST}
