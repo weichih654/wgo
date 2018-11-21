@@ -13,7 +13,7 @@ PROFILE_FILE=~/.profile
 
 if [ "`basename $SHELL`" = "zsh" ]; then
     PROFILE_FILE=~/.zshrc
-    echo "if [ -z \"\$1\" ]; then cat ${WGOLIST}  | sed 's/alias //g' | sed 's/cd //g'; else alias \$1=\"cd \\\"\`pwd\`\\\"\"; echo "alias \$1=\\\"cd \\\\\\\"\"\`pwd\`\\\\\\\"\\\"\"" >> ${WGOLIST}; fi" > ${WGOSRC}
+    echo "if [ -z \"\$1\" ]; then cat ${WGOLIST}  | sed 's/alias //g' | sed 's/cd //g'; else alias \$1=\"cd \\\"\`pwd\`\\\"\"; echo "alias \$1=\\\"cd \\\\\\\"\\\"\`pwd\`\\\\\\\"\\\"\\\"" >> ${WGOLIST}; fi" > ${WGOSRC}
 else
     echo "if [ -z \"\$1\" ]; then cat ${WGOLIST}  | sed 's/alias //g' | sed 's/cd //g'; else alias \$1=\"cd \\\"\`pwd\`\\\"\"; echo "alias \$1=\\\"cd \\\\\\\"\"\`pwd\`\\\\\\\"\"\\\"" >> ${WGOLIST}; fi" > ${WGOSRC}
 fi
